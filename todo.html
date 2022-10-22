@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<!--
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="todo.css" rel="stylesheet">
+   
+	<title>HTML</title>
+  </head>
+  <body id='body'>
+	<h1 id="topTitle">To Do List</h1>
+	<h2>Keep track and <u>never</u> forget.</h2>
+	<p id="author">This application was created by Troy</p>
+	<p>The task and note application will allow you to keep track of the things you need and want to get done and don't want to forget.</p>
+
+	<form id="nToDo">
+	  <!--~~~~~~~~~~~~~~~~~~~ New Note ~~~~-->
+	  <div><!--~~~~~~~~~~-->
+		<input id="nOrder" name="order" placeHolder="O#" type="number" step="1" min="0" max="999" required>
+		<input id="nTitle" name="title" placeHolder="Type To Do Title" size="11" required>
+		<input id="nBody" name="body" placeHolder="Type description" size="15">
+	  </div><!--~~~~~~~~~~-->
+	  <div><!--~~~~~~~~~~~-->
+		<input id="nPriority" name="priority" placeHolder="P#" size='1' maxlength='10'>
+		<label class="rJust">
+		  <input id="nCompleted" name="completed" type="checkbox">Completed?
+		</label>
+		<button class="rJust">Add the new To Do</button>
+	  </div><!--~~~~~~~~-->
+	</form>
+	<!--~~~~~~~~~~~~~~~ New Note END ~~~~-->
+
+	<!--~~~~~~~~~~~~~~~ Filtering ~~~~~~~-->
+	<table class='fullWidth'>
+	  <thead class='fullWidth'>
+		<tr>
+		  <th colspan="3">
+		  <input id="filter" placeHolder="Enter search filter">
+		  <label>
+			<input id="fCompleted" type="checkbox">View Completed?
+		  </label>
+		  </th>
+		</tr>
+	  </thead>
+	  <tbody id='filterDsply' class='fullWidth'></tbody>
+	</table>
+	<!--~~~~~~~~~~~~~~~ Filtering END ~~~-->
+	  
+	<div class='deleteBox'>
+	  <!--~~~~~~~~~~~~~~~ Delete To Do ~~~-->
+		<form id='bDelete'>
+		  <input id="dOrder" name="order" type="number" placeHolder="O#" min="0" max="999" step="1" required>
+			<button>Delete To Do</button>
+		</form>
+	  <span>| .</span>
+		<!--~~~~~~~~~~~~~~~ Sorting options ~~~-->
+		<select id='sortDsply'>
+			<option value='Order'>Assigned sort</option>
+			<option value='Date'>Date created sort</option>
+			<option value='Priority'>Priority sort</option>
+		</select>
+		<!--~~~~~~~~~~~~~~~ Sorting END ~~~~~~~-->
+	</div>
+	
+	<!--~~~~ RENDER full TODOLIST ~~~~~~~-->
+	<table class='fullWidth'>
+	  <thead class='fullWidth'>
+			<tr>
+			  <th id='toDoListTitle' colspan='3'>
+				The Full List Displayed Here
+			  </th>
+			</tr>
+			<tr id='toDoListKey'>
+			</tr>
+		</thead>
+	  <tbody id='toDoList' class='fullWidth'>
+	  </tbody>
+	</table>
+	<!--~~~~ RENDER full TODOLIST END ~~~-->
+	
+	<script src="js\uuid32date.js"></script>
+	<script src="js\functions.js"></script>
+	<script src="todo.js"></script>
+	
+  </body>
+</html>
